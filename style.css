@@ -1,17 +1,39 @@
+.container {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container > * {
+    border: 1px solid black;
+    background: white;
+
+    display: flex;
+
+   
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    background: lightgrey;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+}
+
 .box {
     padding: 10px;
     border: 1px solid black;
-    height: 100px;
-    width: 100px;
-
-    
+    height: 5px;
+    width: 5px;
+   
 }
 
-.container {
-    display: flex;
-    background: grey;
-    border: 1px solid black;
-    flex-wrap: wrap;
-    flex: 0 0 calc(100% / 10);
-}
 
+
+.button-container {
+    padding: 10px;
+}
