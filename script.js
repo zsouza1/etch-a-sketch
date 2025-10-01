@@ -15,8 +15,11 @@ function createGrid(number) {
             const box = document.createElement("div")
             box.classList.add("box");
             box.addEventListener("mouseenter", (event) => {
-            event.target.style.backgroundColor = pixelColor;
-            })
+            if (pixelColor == "rainbow") {
+                event.target.style.backgroundColor = createRainbow();
+            } else {
+                event.target.style.backgroundColor = pixelColor;
+            }}) 
             row.appendChild(box);
         };
 
@@ -47,10 +50,7 @@ const rainbow = document.createElement("button");
 buttonContainer.appendChild(rainbow);
 rainbow.textContent = "Rainbow Mode";
 rainbow.addEventListener("click", () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    return pixelColor = `rgb(${r}, ${g}, ${b})`;
+    pixelColor = "rainbow";
 })
 
 const resetButton = document.createElement("button");
@@ -63,4 +63,9 @@ resetButton.addEventListener("click", () => {
         pixelColor = "black"});
 });
 
-
+function createRainbow() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+};
