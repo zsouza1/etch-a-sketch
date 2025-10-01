@@ -1,19 +1,21 @@
 const container = document.querySelector("#container");
 const gridContainer = document.querySelector("#grid-container");
 const buttonContainer = document.querySelector("#button-container");
-const STARTING_GRID = 10;
+const STARTING_GRID = 16;
+let pixelColor = "black"
+
 
 //grid creation function
 function createGrid(number) {
-    for (let i = 0; i < number; i++) {
+    for (let rowIndex = 0; rowIndex < number; rowIndex++) {
         const row = document.createElement("div");
         row.classList.add("row");
         
-        for (let i = 0; i < number; i++) {
+        for (let colIndex = 0; colIndex < number; colIndex++) {
             const box = document.createElement("div")
             box.classList.add("box");
             box.addEventListener("mouseenter", (event) => {
-            event.target.style.backgroundColor = "black";
+            event.target.style.backgroundColor = pixelColor;
             })
             row.appendChild(box);
         };
@@ -34,18 +36,22 @@ gridPrompt.addEventListener("click", () => {
         number = 100;
         alert("Grid size lowered to 100")
     } else if ((number === null) || (number === "")) {
-        number = 10;
+        number = 16;
     } ;
     gridContainer.replaceChildren();
     createGrid(number);
     
 })
 
-
-
-
-
-
+const rainbow = document.createElement("button");
+buttonContainer.appendChild(rainbow);
+rainbow.textContent = "Rainbow Mode";
+rainbow.addEventListener("click", () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return pixelColor = `rgb(${r}, ${g}, ${b})`;
+})
 
 const resetButton = document.createElement("button");
 buttonContainer.appendChild(resetButton);
@@ -53,6 +59,8 @@ resetButton.textContent = "Reset color";
 resetButton.addEventListener("click", () => {
     const resetGrid = document.querySelectorAll(".box")
     resetGrid.forEach((box) => {
-        box.style.backgroundColor = "white"});
+        box.style.backgroundColor = "white"
+        pixelColor = "black"});
 });
+
 

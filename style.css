@@ -1,39 +1,41 @@
+* {
+    background: lightgrey;
+}
 .container {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.grid-container > * {
-    border: 1px solid black;
-    background: white;
-
-    display: flex;
-
-   
+    background: lightgrey;
 }
 
 .grid-container {
+    width: 80vmin;   /* vmin keeps it square on any screen size */
+    height: 80vmin;
     display: flex;
     flex-direction: column;
     background: lightgrey;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid black;
+}
+
+.row {
+    display: flex;
+    flex: 1;
 }
 
 .box {
-    padding: 10px;
+    flex: 1;
+    aspect-ratio: 1 / 1;
     border: 1px solid black;
-    height: 5px;
-    width: 5px;
-   
+    background: white;
 }
-
-
 
 .button-container {
     padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background: white;
 }
